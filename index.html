@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capybara Clicker</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="particle-layer" id="particleLayer" aria-hidden="true"></div>
+    <div class="image-viewer" id="imageViewer" aria-hidden="true">
+      <figure class="image-viewer-frame">
+        <img id="imageViewerImage" src="" alt="">
+        <figcaption id="imageViewerCaption"></figcaption>
+      </figure>
+    </div>
+
+    <main class="game-shell">
+      <header class="top-bar">
+        <div class="brand-block">
+          <p class="kicker">OK I PULL UP</p>
+          <h1>Capybara Clicker</h1>
+        </div>
+
+        <section class="stat-strip" aria-label="Current capybara stats">
+          <div class="stat-tile">
+            <span class="stat-value" id="capybaraCount">0</span>
+            <span class="stat-label">capybaras</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-value" id="perClick">1</span>
+            <span class="stat-label">per click</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-value" id="perSecond">0</span>
+            <span class="stat-label">per second</span>
+          </div>
+        </section>
+
+        <div class="header-actions" aria-label="Game controls">
+          <button class="control-button fullscreen-button" id="fullscreenButton" type="button">Fullscreen</button>
+          <button class="control-button reset-button" id="resetButton" type="button">Reset</button>
+        </div>
+      </header>
+
+      <section class="game-grid">
+        <section class="click-zone" aria-label="Main clicker">
+          <div class="comic-burst" aria-hidden="true">BONK</div>
+          <button class="capybara-button" id="capybaraButton" type="button" aria-label="Click capybara">
+            <img id="mainCapybaraImage" src="assets/capybara-main.jpg" alt="Capybara">
+          </button>
+          <div class="meme-ribbon">
+            <span id="memeLine">very chill economy</span>
+          </div>
+        </section>
+
+        <aside class="shop-panel" aria-label="Upgrade shop">
+          <div class="shop-head">
+            <div>
+              <p class="kicker">Upgrade Chaos</p>
+              <h2>Shop</h2>
+            </div>
+            <span class="owned-total" id="ownedTotal">0 owned</span>
+          </div>
+
+          <div class="upgrade-list" id="upgradeList"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="game.js" defer></script>
+  </body>
+</html>
