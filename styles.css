@@ -23,6 +23,7 @@ html {
 
 body {
   min-height: 100vh;
+  min-height: 100svh;
   margin: 0;
   overflow-x: hidden;
   color: var(--ink);
@@ -653,54 +654,270 @@ h2 {
 
 @media (max-width: 620px) {
   .game-shell {
-    width: min(100% - 20px, 1480px);
-    padding-top: 12px;
+    width: min(78vw, 330px);
+    padding: 8px 0 calc(18px + env(safe-area-inset-bottom));
+  }
+
+  .top-bar {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .brand-block,
+  .stat-strip,
+  .shop-panel,
+  .click-zone {
+    border-width: 3px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .brand-block {
+    min-height: auto;
+    padding: 10px 12px;
+    transform: none;
+  }
+
+  .kicker {
+    font-size: 0.68rem;
+  }
+
+  .header-actions {
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .control-button {
+    min-width: 0;
+    min-height: 48px;
+    border-width: 3px;
+    box-shadow: 3px 3px 0 var(--ink);
+    font-size: 0.88rem;
   }
 
   .stat-strip {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    min-height: auto;
+    gap: 6px;
+    padding: 6px;
+    transform: none;
+  }
+
+  .stat-tile {
+    border-width: 2px;
+    padding: 7px 3px;
   }
 
   h1 {
-    font-size: 2.55rem;
-  }
-
-  h2 {
     font-size: 2rem;
   }
 
+  h2 {
+    font-size: 1.75rem;
+  }
+
   .stat-value {
-    font-size: 2.2rem;
+    font-size: 1.18rem;
+  }
+
+  .stat-label {
+    overflow-wrap: anywhere;
+    font-size: 0.48rem;
+    line-height: 1;
   }
 
   .click-zone {
-    min-height: 500px;
-    padding: 18px;
+    min-height: 370px;
+    padding: 14px;
   }
 
   .comic-burst {
-    top: 16px;
-    right: 16px;
-    font-size: 1.55rem;
+    top: 12px;
+    right: 12px;
+    border-width: 3px;
+    box-shadow: 3px 3px 0 var(--ink);
+    font-size: 1.2rem;
+    padding: 7px 10px;
   }
 
   .capybara-button {
-    width: min(82vw, 360px);
+    width: min(68vw, 250px);
+    border-width: 5px;
+    box-shadow: 0 12px 0 #c79a17, 0 18px 22px var(--shadow);
+  }
+
+  .capybara-button::after {
+    inset: 10px;
+    border-width: 3px;
+  }
+
+  .capybara-button:active,
+  .capybara-button.is-bonking {
+    box-shadow: 0 6px 0 #c79a17, 0 12px 16px var(--shadow);
+  }
+
+  .meme-ribbon {
+    bottom: 16px;
+    width: calc(100% - 28px);
+    border-width: 3px;
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 9px 10px;
+    font-size: 0.86rem;
+  }
+
+  .shop-panel {
+    padding: 10px;
+    background: var(--panel);
+  }
+
+  .shop-head {
+    gap: 10px;
+    margin-bottom: 10px;
+    border-bottom-width: 3px;
+    padding-bottom: 10px;
+  }
+
+  .owned-total {
+    border-width: 2px;
+    box-shadow: 2px 2px 0 var(--ink);
+    padding: 6px 8px;
+    font-size: 0.74rem;
+  }
+
+  .upgrade-list {
+    gap: 9px;
   }
 
   .upgrade-card {
-    grid-template-columns: 58px minmax(0, 1fr);
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 8px;
+    border-width: 3px;
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 8px;
   }
 
   .upgrade-icon {
-    width: 58px;
-    height: 58px;
+    width: 54px;
+    height: 54px;
+    border-width: 2px;
+  }
+
+  .upgrade-badge {
+    right: -4px;
+    bottom: -4px;
+    max-width: 54px;
+    font-size: 0.5rem;
+    padding: 3px 4px;
+  }
+
+  .upgrade-title-row {
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .upgrade-name {
+    font-size: 1.02rem;
+  }
+
+  .upgrade-owned {
+    padding: 2px 5px;
+    font-size: 0.58rem;
+  }
+
+  .upgrade-description,
+  .upgrade-effect,
+  .upgrade-cost {
+    margin-top: 3px;
+    font-size: 0.72rem;
+    line-height: 1.15;
   }
 
   .buy-button {
     grid-column: 1 / -1;
     width: 100%;
-    min-height: 54px;
+    min-height: 46px;
+    border-width: 2px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .image-viewer {
+    padding: 12px;
+  }
+
+  .image-viewer-frame {
+    width: min(100%, 440px);
+    border-width: 4px;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    transform: none;
+  }
+
+  .image-viewer-frame img {
+    max-height: 72svh;
+    border-width: 3px;
+  }
+
+  .image-viewer-frame figcaption {
+    font-size: 1.35rem;
+  }
+
+  .click-capybara {
+    max-width: 34vw;
+    max-height: 34vw;
+    border-width: 3px;
+    box-shadow: 4px 4px 0 rgba(33, 24, 29, 0.72);
+  }
+
+  .float-score {
+    font-size: 1rem;
+    border-width: 2px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+}
+
+@media (min-width: 480px) and (max-width: 620px) {
+  .game-shell {
+    width: min(92vw, 520px);
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 1.72rem;
+  }
+
+  .control-button {
+    font-size: 0.78rem;
+  }
+
+  .stat-value {
+    font-size: 0.98rem;
+  }
+
+  .stat-label {
+    font-size: 0.44rem;
+  }
+
+  .click-zone {
+    min-height: 350px;
+  }
+
+  .capybara-button {
+    width: min(70vw, 230px);
+  }
+
+  .upgrade-card {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .upgrade-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .upgrade-description,
+  .upgrade-effect,
+  .upgrade-cost {
+    font-size: 0.66rem;
   }
 }
 
